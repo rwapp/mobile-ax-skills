@@ -1,0 +1,86 @@
+name: Release
+
+# Manual release: you choose the semver bump, and the workflow:
+#   1. computes the new version from the current VERSION file
+#   2. writes VERSION and stamps it into every skills/**/SKILL.md (scripts/stamp-version.sh)
+#   3. updates the CHANGELOG heading ([Unreleased] -> the new version + date)
+#   4. commits, tags vX.Y.Z, and creates a GitHub Release
+#
+# Fixed/locked versioning: ONE version for the whole collection, stamped into every skill.
+# Run from the Actions tab > Release > Run workflow.
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Semver bump"
+        required: true
+        type: choice
+        options: [patch, minor, major]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compute new version
+        id: ver
+        run: |
+          set -euo pipefail
+          current="$(tr -d '[:space:]' < VERSION)"
+          IFS=. read -r major minor patch <<< "$current"
+          case "${{ inputs.bump }}" in
+            major) major=$((major+1)); minor=0; patch=0 ;;
+            minor) minor=$((minor+1)); patch=0 ;;
+            patch) patch=$((patch+1)) ;;
+          esac
+          new="${major}.${minor}.${patch}"
+          echo "current=$current" >> "$GITHUB_OUTPUT"
+          echo "new=$new" >> "$GITHUB_OUTPUT"
+          echo "Bumping $current -> $new (${{ inputs.bump }})"
+
+      - name: Write VERSION and stamp all SKILL.md
+        run: |
+          set -euo pipefail
+          echo "${{ steps.ver.outputs.new }}" > VERSION
+          bash scripts/stamp-version.sh
+          bash scripts/stamp-version.sh --check
+
+      - name: Update CHANGELOG heading
+        run: |
+          set -euo pipefail
+          today="$(date +%Y-%m-%d)"
+          # Turn the [Unreleased] heading into the released version, then add a fresh
+          # empty [Unreleased] section above it for the next cycle.
+          if grep -q '^## \[Unreleased\]' CHANGELOG.md; then
+            tmp="$(mktemp)"
+            awk -v ver="${{ steps.ver.outputs.new }}" -v date="$today" '
+              /^## \[Unreleased\]/ && !done {
+                print "## [Unreleased]"; print "";
+                print "## [" ver "] - " date;
+                done=1; next
+              }
+              { print }
+            ' CHANGELOG.md > "$tmp"
+            mv "$tmp" CHANGELOG.md
+          fi
+
+      - name: Commit, tag, and release
+        run: |
+          set -euo pipefail
+          new="${{ steps.ver.outputs.new }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add VERSION CHANGELOG.md skills
+          git commit -m "Release v${new}"
+          git tag "v${new}"
+          git push origin HEAD --tags
+          gh release create "v${new}" --title "v${new}" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
