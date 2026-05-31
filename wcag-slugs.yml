@@ -1,0 +1,15 @@
+# Canonical WCAG 2.2 success-criterion -> Understanding-doc slug map.
+#
+# Source of truth for building and checking WCAG reference URLs. The Understanding URL for an SC
+# is:  https://www.w3.org/WAI/WCAG22/Understanding/<slug>.html
+#
+# The slug is the SC's dashed name, NOT its number. An agent fills reference URLs by looking the
+# number up here (it must not guess slugs); CI (scripts/check-references.sh) verifies every WCAG
+# reference URL matches this map and resolves.
+#
+# This file is human-maintained: add an entry only after confirming the slug against w3.org.
+# Add SCs here as new skills need them.
+
+"1.1.1": non-text-content
+"1.4.5": images-of-text
+"4.1.2": name-role-value

@@ -1,0 +1,20 @@
+name: Check references
+
+# Verifies every WCAG reference URL in skills/**/references.md: that its SC maps to a known slug
+# in wcag-slugs.yml, that the URL is the expected Understanding-doc URL, and that it resolves.
+# Wrong/guessed slug or a 404 fails the build; an unfilled slot is fine (pending); a transient
+# network error to w3.org only warns. This is what lets the agent fill WCAG URLs (deterministically
+# from the human-supplied SCs) without us having to trust its recall.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check WCAG reference URLs
+        run: bash scripts/check-references.sh
