@@ -227,4 +227,21 @@ a risk this prose-heavy repo doesn't have).
   rubric vs. trap cases vs. manual AT gate). To be decided after watching the first skill run
   against the trap fixture.
 - **Jetpack Compose skills** — conventions are platform-neutral so Compose slots in later.
+- **Dynamic Type skill** — when built, add a cross-link from `swiftui-images`' "Images of text"
+  guidance (which already warns that images of text don't scale with Dynamic Type). This is a
+  *cross-link, not a migration*: the images-of-text guidance stays here; it just points to the
+  Dynamic Type skill for the "prefer real text because it scales" reasoning.
+- **Colour skill** — owns 1.4.1 Use of Color (a cross-cutting SC: text, links, form states,
+  charts, not just images). Includes the **recolour-only state icon** overlap with
+  `swiftui-images`: when the *same* glyph is recoloured to signal state (e.g. `circle.fill` green
+  vs. grey), colour is the only visual differentiator → a 1.4.1 failure a colourblind *sighted*
+  user hits. This skill's image label fixes the screen-reader case but **not** that — so when the
+  colour skill exists, add a cross-link from the status section. (Does *not* apply when different
+  symbols signal the states — then shape already differs.) Intentionally not cited as an SC of
+  `swiftui-images`, since a label doesn't satisfy 1.4.1.
+- **Buttons skill (`swiftui-buttons`)** — when built, the *action* guidance in `swiftui-images`'
+  "Tappable / interactive images" section (decision-tree) moves there, and `swiftui-images`
+  cross-references it. Note this is a *move of the action part, not a deletion*: an image inside a
+  button still has an image-treatment decision here (hide the inner image; the button carries the
+  label), so this skill keeps that and points to the buttons skill for the rest.
 - **Enforcement hook** — out of scope (not portable / not agent-agnostic).
