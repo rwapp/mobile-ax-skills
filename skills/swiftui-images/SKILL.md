@@ -199,7 +199,6 @@ If the file doesn't exist yet, create it with the one-time **preamble** below (w
 don't touch the preamble — just upsert this component's section.
 
 ```markdown
-<!-- BEGIN testplan-preamble (canonical: templates/testplan-preamble.md — do not hand-edit; stamped by scripts/stamp-preamble.sh) -->
 # Accessibility test plan
 
 **About this plan.** Each component below lists a ⭐ *Start here* check — the single highest-impact
@@ -213,7 +212,6 @@ wrong:
 - **P2 — Significant impact:** major friction or confusion, but the task is still possible.
 - **P3 — Noticeable impact:** a smaller annoyance or rough edge.
 - **P4 — Doesn't follow best practice:** works, but isn't ideal.
-<!-- END testplan-preamble -->
 
 ---
 
