@@ -71,6 +71,7 @@ verification steps and links.
 | Skill | Platform | Topic | Maturity |
 |-------|----------|-------|----------|
 | [swiftui-images](skills/swiftui-images/) | SwiftUI | Images & SF Symbols | experimental |
+| [compose-images](skills/compose-images/) | Jetpack Compose | Images & Icons | experimental |
 
 Maturity reflects how proven a skill is, independent of the collection version.
 

@@ -9,9 +9,13 @@ frontmatter. This project follows [semver](https://semver.org/) and
 ### Added
 - Repository conventions: `README.md`, `CONTRIBUTING.md`, `DECISIONS.md`, and templates
   (`SKILL_TEMPLATE.md`, `references.template.md`).
-- First skill: `swiftui-images` (0.1.0) — accessible handling of Images and SF Symbols in
-  SwiftUI, with a build-time decision tree, AT-neutral and prioritised output contract, and a
-  `mixed-images` trap fixture.
+- First skill: `swiftui-images` — accessible handling of Images and SF Symbols in SwiftUI, with a
+  build-time decision tree, AT-neutral and prioritised output contract, and a `mixed-images` trap
+  fixture.
+- Second skill: `compose-images` — the Jetpack Compose counterpart (Images & Icons), mirroring
+  `swiftui-images`' structure and decisions with Compose-native code (`contentDescription`/`null`,
+  `selectable`, `stateDescription`, Coil `AsyncImage`) and the Android AT stack (TalkBack, Voice
+  Access, Switch Access).
 - MIT `LICENSE`.
 - Fixed (single) collection versioning: root `VERSION` file, `scripts/stamp-version.sh`, a
   manual-dispatch **Release** workflow, and a CI **Check versions** workflow.
