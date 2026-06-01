@@ -1,7 +1,7 @@
 ---
 name: compose-images
 description: Use when building or adding an Image, Icon, or painter in Jetpack Compose, to make it accessible from the start — decide whether it should be described, hidden, or marked as a selected state, and hand the developer a way to verify the experience.
-version: 0.1.0 # collection version (machine-managed; stamped from /VERSION — do not hand-edit)
+version: 0.1.1 # collection version (machine-managed; stamped from /VERSION — do not hand-edit)
 wcag: "2.2"
 platform: compose
 license: MIT

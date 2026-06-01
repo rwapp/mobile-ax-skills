@@ -6,6 +6,8 @@ frontmatter. This project follows [semver](https://semver.org/) and
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-06-01
+
 ### Added
 - Repository conventions: `README.md`, `CONTRIBUTING.md`, `DECISIONS.md`, and templates
   (`SKILL_TEMPLATE.md`, `references.template.md`).

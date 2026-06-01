@@ -1,7 +1,7 @@
 ---
 name: swiftui-images
 description: Use when building or adding an Image or SF Symbol in SwiftUI, to make it accessible from the start — decide whether it should be labelled, hidden, or marked as a selected state, and hand the developer a way to verify the experience.
-version: 0.1.0 # collection version (machine-managed; stamped from /VERSION — do not hand-edit)
+version: 0.1.1 # collection version (machine-managed; stamped from /VERSION — do not hand-edit)
 wcag: "2.2"
 platform: swiftui
 license: MIT
