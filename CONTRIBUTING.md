@@ -99,15 +99,20 @@ Every skill makes the agent produce **two surfaces** (see the template for exact
 
 ### AT-neutrality (required)
 
-Do not reduce accessibility to VoiceOver or TalkBack. Different end users rely on different assistive
-technologies and they respond **differently** to the same code. In chat use AT-neutral language
-("assistive technologies"); in the test plan name the ATs that matter **for that instance**,
-**ranked**, each with what to look for. Example: a screen reader announces a label, but Voice
-Control / Voice Access uses that same label as the phrase the end user must *speak* to activate
-the control — so a label can pass with a screen reader and still break voice control.
+Don't reduce accessibility to the screen reader alone. Different end users rely on different
+assistive technologies and they respond **differently** to the same code (e.g. a screen reader
+announces a label, but a voice-control tool uses that same label as the phrase the end user must
+*speak* to activate the control — so a label can pass with a screen reader and still break voice
+control). In chat use AT-neutral language ("assistive technologies"); in the test plan name the ATs
+that matter **for that instance**, **ranked**, each with what to look for.
 
-- SwiftUI skills name the Apple stack (VoiceOver, Voice Control, Switch Control, Dynamic Type).
-- Compose skills name the Android stack (TalkBack, Voice Access, Switch Access).
+**"AT-neutral" means don't assume screen-reader-only — NOT list every platform's tools.** Name only
+the ATs on the skill's *own* platform; a skill must never name the other platform's ATs in its
+output (no TalkBack in a SwiftUI test plan, no VoiceOver in a Compose one) — the developer can't
+test them and it's noise.
+
+- SwiftUI skills name **only** the Apple stack (VoiceOver, Voice Control, Switch Control, Full Keyboard Access, Dynamic Type).
+- Compose skills name **only** the Android stack (TalkBack, Voice Access, Switch Access, Keyboard Access).
 
 ### Prioritization (required)
 

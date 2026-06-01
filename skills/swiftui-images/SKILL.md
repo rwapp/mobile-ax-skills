@@ -250,7 +250,10 @@ dot means 'Online' — I assumed that; if it means something else the label is w
 
 ### AT-neutrality for this skill
 Name the assistive technologies that matter for *this* image, ranked, each with what to look
-for — they differ:
+for — they differ. **Name only the Apple-platform ATs the developer can actually test** —
+VoiceOver, Voice Control, Switch Control, Full Keyboard Access. Don't list Android ATs (TalkBack,
+Voice Access): this is a SwiftUI skill, so they're irrelevant to this developer. "AT-neutral" means *don't assume
+screen-reader-only* — not *list every platform's tools*.
 
 - **Meaningful, non-interactive image** → primarily a **screen reader** (VoiceOver): does it
   announce the meaning, not just "image"?
@@ -258,7 +261,8 @@ for — they differ:
   should be skipped).
 - **Interactive image / image button** → screen reader **and Voice Control**: the label is both
   what VoiceOver announces *and* the phrase the end user must *speak* to activate it, so it must
-  match the visible affordance. Switch Control should also be able to reach and trigger it.
+  match the visible affordance. Switch Control and Full Keyboard Access should also be able to
+  reach and trigger it.
 
 ### Prioritization for this skill (typical)
 - **Decorative image:** "Start here" = *swipe through with VoiceOver and confirm the image is

@@ -275,7 +275,10 @@ dot means 'Online' — I assumed that; if it means something else the descriptio
 
 ### AT-neutrality for this skill
 Name the assistive technologies that matter for *this* image, ranked, each with what to look
-for — they differ:
+for — they differ. **Name only the Android-platform ATs the developer can actually test** —
+TalkBack, Voice Access, Switch Access, Keyboard Access. Don't list iOS ATs (VoiceOver, Voice
+Control): this is a Compose skill, so they're irrelevant to this developer. "AT-neutral" means *don't assume
+screen-reader-only* — not *list every platform's tools*.
 
 - **Meaningful, non-interactive image** → primarily a **screen reader** (TalkBack): does it
   announce the meaning, not just "image" or the resource name?
@@ -283,7 +286,7 @@ for — they differ:
   should be skipped — `contentDescription = null` should ensure this).
 - **Interactive image / icon button** → screen reader **and Voice Access**: TalkBack announces the
   label, and Voice Access needs a usable label/number to target the control by voice. Switch
-  Access should also be able to reach and trigger it.
+  Access and Keyboard Access should also be able to reach and trigger it.
 
 ### Prioritization for this skill (typical)
 - **Decorative image:** "Start here" = *swipe through with TalkBack and confirm the image is

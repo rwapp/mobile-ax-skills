@@ -15,7 +15,7 @@ frontmatter. This project follows [semver](https://semver.org/) and
 - Second skill: `compose-images` — the Jetpack Compose counterpart (Images & Icons), mirroring
   `swiftui-images`' structure and decisions with Compose-native code (`contentDescription`/`null`,
   `selectable`, `stateDescription`, Coil `AsyncImage`) and the Android AT stack (TalkBack, Voice
-  Access, Switch Access).
+  Access, Switch Access, Keyboard Access).
 - MIT `LICENSE`.
 - Fixed (single) collection versioning: root `VERSION` file, `scripts/stamp-version.sh`, a
   manual-dispatch **Release** workflow, and a CI **Check versions** workflow.

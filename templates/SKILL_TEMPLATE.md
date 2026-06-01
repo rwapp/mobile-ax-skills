@@ -108,9 +108,11 @@ wrong:
 
 **AT-neutrality:** name the assistive technologies that actually matter for *this* instance,
 ranked, each with what to look for — they behave differently (e.g. a screen reader announces
-a label; Voice Control uses that same label as the spoken activation phrase). For this platform
-(`swiftui`) that's the Apple stack: VoiceOver, Voice Control, Switch Control, Dynamic Type where
-relevant. A purely decorative element should be verified as **not focusable by any AT**.
+a label; a voice-control tool uses that same label as the spoken activation phrase). Name **only
+your own platform's** stack, never the other's:
+- **Apple (SwiftUI):** VoiceOver, Voice Control, Switch Control, Full Keyboard Access, Dynamic Type.
+- **Android (Compose):** TalkBack, Voice Access, Switch Access, Keyboard Access.
+A purely decorative element should be verified as **not focusable by any AT**.
 
 **Judging severity (general method):** to assign a P-level, ask *"if I got this treatment wrong,
 what can the end user no longer do?"*
