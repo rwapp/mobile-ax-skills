@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Linux / Windows cruft
+*~
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Xcode (the .swift files here are reference fixtures, not a project — but guard against
+# artifacts if someone opens them in Xcode)
+xcuserdata/
+*.xcuserstate
+.swiftpm/
+DerivedData/
+
+# Logs / scratch
+*.log
